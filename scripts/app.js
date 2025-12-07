@@ -326,7 +326,13 @@ async function getComments(segmentId) {
         }
 
         const payload = await response.json();
-        const items = Array.isArray(payload?.comments) ? payload.comments : [];
+        const items = Array.isArray(payload?.comments)
+            ? payload.comments
+            : Array.isArray(payload)
+                ? payload
+                : Array.isArray(payload?.records)
+                    ? payload.records
+                    : [];
         state.commentsCache[segmentId] = items;
         writeLocalComments(segmentId, items);
         return items;
@@ -369,7 +375,8 @@ async function saveComment(entry) {
     }
 
     const payload = await response.json();
-    if (!payload?.success) {
+    const success = payload?.success ?? payload?.ok ?? false;
+    if (!success) {
         throw new Error("Google Apps Script did not return success");
     }
 }

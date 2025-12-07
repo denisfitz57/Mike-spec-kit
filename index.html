@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mike Fitzpatrick — Vietnam Remembrances</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="page-shell">
+        <header class="hero" data-hero>
+            <div class="hero__image-frame">
+                <img data-hero-image src="" alt="" />
+                <p class="hero__caption" data-hero-caption></p>
+            </div>
+            <div class="hero__content">
+                <p class="hero__eyebrow">Oral history & hometown clippings</p>
+                <h1 data-hero-title></h1>
+                <p class="hero__dek" data-hero-dek></p>
+                <blockquote data-hero-quote></blockquote>
+                <div class="hero__intro" data-hero-intro></div>
+                <nav class="hero__nav">
+                    <a href="#narrative">Narrative</a>
+                    <a href="#clippings">Clippings</a>
+                    <a href="#glossary">Glossary</a>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section id="narrative" class="section-block">
+                <div class="section-heading">
+                    <p>Mike's own words</p>
+                    <h2>Combat notes & reflections</h2>
+                </div>
+                <div class="narrative-grid" data-narrative-grid></div>
+            </section>
+
+            <section id="clippings" class="section-block">
+                <div class="section-heading">
+                    <p>Homefront record</p>
+                    <h2>Newspaper clippings</h2>
+                    <p>
+                        Each clipping includes a comment thread. Click a card to leave context for future
+                        readers.
+                    </p>
+                </div>
+                <div class="clipping-grid" data-clipping-grid></div>
+            </section>
+
+            <section id="glossary" class="section-block">
+                <div class="section-heading">
+                    <p>Context for curious readers</p>
+                    <h2>Glossary</h2>
+                </div>
+                <div class="glossary" data-glossary></div>
+            </section>
+        </main>
+    </div>
+
+    <aside class="comment-panel" data-comment-panel>
+        <div class="comment-panel__header">
+            <div>
+                <p class="comment-panel__eyebrow">Open annotation</p>
+                <h3 data-comment-title>Comments</h3>
+            </div>
+            <button type="button" aria-label="Close comments" data-comment-close>×</button>
+        </div>
+        <div class="comment-panel__status" data-comment-status></div>
+        <div class="comment-panel__list" data-comment-list></div>
+        <form class="comment-panel__form" data-comment-form>
+            <label>
+                Name (optional)
+                <input type="text" name="name" maxlength="80" placeholder="Anonymous" />
+            </label>
+            <label>
+                Comment
+                <textarea name="comment" rows="4" required placeholder="What stood out to you?"></textarea>
+            </label>
+            <button type="submit" class="primary-button">Post comment</button>
+        </form>
+        <p class="comment-panel__footnote">
+            Comments persist in a Google Sheet via Apps Script so the site can stay static and hostable
+            on GitHub Pages without a custom server.
+        </p>
+    </aside>
+
+    <script type="module" src="scripts/app.js"></script>
+</body>
+
+</html>
